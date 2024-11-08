@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Oferta {
+  id            Int         @id @default(autoincrement())
+  clienteId     Int
+  monto        Float
+  estado       String      // "PENDIENTE", "ACEPTADA", "RECHAZADA"
+  fechaCreacion DateTime   @default(now())
+  documentos    Documento[]
+  hipoteca     Hipoteca?
+}
+
+model Documento {
+  id           Int      @id @default(autoincrement())
+  ofertaId     Int
+  tipo         String
+  url          String
+  fechaSubida  DateTime @default(now())
+  completado   Boolean  @default(false)
+  oferta       Oferta   @relation(fields: [ofertaId], references: [id])
+}
+
+model Hipoteca {
+  id            Int      @id @default(autoincrement())
+  ofertaId      Int      @unique
+  montoInicial  Float
+  tasaInteres   Float
+  fechaCreacion DateTime @default(now())
+  estado        String   // "ACTIVA", "CANCELADA"
+  oferta        Oferta   @relation(fields: [ofertaId], references: [id])
+}
