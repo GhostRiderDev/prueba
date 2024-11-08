@@ -1,0 +1,4 @@
+{"level":"info","message":"Hipoteca creada para la oferta 1","timestamp":"2024-11-08T23:00:23.321Z"}
+{"level":"error","message":"Error al procesar documentos: \nInvalid `prisma.hipoteca.create()` invocation:\n\n\nUnique constraint failed on the fields: (`ofertaId`)","timestamp":"2024-11-08T23:08:59.381Z"}
+{"level":"error","message":"Error al procesar documentos: \nInvalid `prisma.hipoteca.create()` invocation:\n\n\nUnique constraint failed on the fields: (`ofertaId`)","timestamp":"2024-11-08T23:09:03.598Z"}
+{"level":"info","message":"Hipoteca creada para la oferta 2","timestamp":"2024-11-08T23:09:58.763Z"}
